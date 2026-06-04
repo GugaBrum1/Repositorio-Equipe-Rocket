@@ -139,8 +139,6 @@ void excluir(Figurinha album[], int *quantidade) {
 
     (*quantidade)--;
 
-    album = realloc(album, (*quantidade + 1) * sizeof(Figurinha));
-
     printf("Figurinha removida\n");
 }//funcao q exclui fig
 
@@ -162,21 +160,21 @@ void abrirpacote(Figurinha album[], int quantidade)
         printf("Tipo: %s\n", album[sorteada].tipo);
 
         if(album[sorteada].fig_colada){
-            printf("Você ja possui essa figurinha");
+            printf("Você ja possui essa figurinha\n");
 
+            album[sorteada].disponiveltroca = 0;
             album[sorteada].disponiveltroca++;
 
-            printf("Adicionada automaticamente para troca");
-            printf("Quantidade para troca: %d",
-            album[sorteada].disponiveltroca);
+            printf("Adicionada automaticamente para troca\n");
+            printf("Quantidade para troca: %d", album[sorteada].disponiveltroca);
         }
         else{
             int opcao;
 
-            printf("o que deseja fazer?");
-            printf("1 para colar no album");
-            printf("2 para guardar para troca");
-            printf("0 para ignorar");
+            printf("o que deseja fazer?\n");
+            printf("1 para colar no album\n");
+            printf("2 para guardar para troca\n");
+            printf("0 para ignorar\n");
             printf("Opção:");
 
             scanf("%d", &opcao);
